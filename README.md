@@ -40,7 +40,7 @@ This script is used to identify a suitable trial fund for single-fund testing.
 Current selection logic includes:
 - NAV0 must remain strictly positive for all weeks
 - at least 24 quarters of operation
-- at least 20 reported NAV observations
+- at least 10 reported NAV observations
 - at least 2 observed distributions
 
 These filters are intended only for trial-fund selection and not as the final batch-sample definition.
