@@ -13,10 +13,10 @@ This thesis applies the PEfundSSM state-space nowcasting framework to a propriet
 
 **Main files**
 
-1. data_cleaning.py
+**1. data_cleaning.py**
 This script is used to clean and standardize the raw proprietary dataset before the fund-level transformation step.
 
-2. data_transformation.py
+**2. data_transformation.py**
 This is the main Python script used to transform the cleaned raw dataset into the fund-level CSV files required by the MATLAB model.
 For each fund, it creates:
 - Cs.csv
@@ -34,7 +34,7 @@ In that alternative version:
 - recursion then continues from that anchor level
 Negative NAV0 values are intentionally allowed in that commented version.
 
-3. trial_fund_selection.py
+**3. trial_fund_selection.py**
 This script is used to identify a suitable trial fund for single-fund testing.
 
 Current selection logic includes:
@@ -45,48 +45,48 @@ Current selection logic includes:
 
 These filters are intended only for trial-fund selection and not as the final batch-sample definition.
 
-4. market_data.py
+**4. market_data.py**
 This script prepares the market return inputs used in data_transformation.py.
 
-5. dataset_summary.py
+**5. dataset_summary.py**
 This script is used to generate descriptive summary statistics for the proprietary dataset.
 It is mainly intended to support dataset overview tables and basic checks on fund coverage, NAV availability, cash flow coverage, and related sample characteristics.
 
-6. prebatch_risk_summary.py
+**6. prebatch_risk_summary.py**
 This script is used to compute pre-estimation summary measures for funds before MATLAB batch-style testing.
 Its role is to provide quick diagnostics and comparison metrics that help review the fund set before running the estimation scripts.
 
-7. multibatch_run_fund_folder.py
+**7. multibatch_run_fund_folder.py**
 This helper script filters the fund folders that are eligible for batch-style execution and copies them into a separate working folder.
 It is used to create a dedicated set of candidate fund folders for the multibatch workflow.
 
-8. TrialRunner.m
+**8. TrialRunner.m**
 This is the main MATLAB script used to run the nowcasting model for a single trial fund.
 
-9. BatchTrialRunner.m
+**9. BatchTrialRunner.m**
 This MATLAB script contains the batch-style trial-fund estimation logic used across multiple candidate funds instead of only one manually selected fund.
 In practice, this logic is called from MultiFundRunner.m to automate repeated single-fund runs and to collect comparable estimation outputs across candidates.
 
-10. PEfundSSM.m
+**10. PEfundSSM.m**
 This file contains the state-space model implementation used by the MATLAB estimation procedure.
 
-11. MultiFundRunner.m
+**11. MultiFundRunner.m**
 This MATLAB script was intended to run the workflow across multiple funds in a broader multi-fund setting.
 It serves as the top-level runner for multi-fund execution and is the script a user would run to launch the broader multi-fund workflow.
 In this package, it is included as a multi-fund runner script, but the final thesis implementation and reported results rely on the single-fund workflow rather than a completed multi-fund run.
 
 **Input data files**
 
-1. CLEAN_fund.csv
+**1. CLEAN_fund.csv**
 Fund-level raw input file.
 
-2. CLEAN_fund_cash_flow.csv
+**2. CLEAN_fund_cash_flow.csv**
 Raw cash flow file used to construct weekly contributions and distributions.
 
-3. CLEAN_capital_account.csv
+**3. CLEAN_capital_account.csv**
 Raw NAV reporting file used to extract reported NAV observations.
 
-4. market_data.csv
+**4. market_data.csv**
 Prepared market data file used by data_transformation.py.
 It contains:
 - Rm: market return series
@@ -105,10 +105,10 @@ These files correspond to the transformed inputs used in the MATLAB single-fund 
 
 **Output file**
 
-1. EstimationSummary.xlsx
+**1. EstimationSummary.xlsx**
 This is the estimation output for the current trial-fund run.
 
-2. Figures
+**2. Figures**
 Folder includes printed figures used in thesis, which visualize the results.
 
 
